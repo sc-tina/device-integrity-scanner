@@ -37,7 +37,8 @@ class DeviceIntegrityScanner:
     def check_sensors(self):
         result = {}
         for s in ['gsensor', 'lightsensor', 'proximitysensor']:
-            v = self._run(['shell', 'dumpsys', 'sensorservice', '|', 'grep', '-i', s])
+            v = self._run(['shell', 'dumpsys', 'sensorservice'])
+            v = s in v.lower() if v else False
             result[s] = 'detected' if v else 'missing'
         return result
 
