@@ -2,6 +2,10 @@
 """CLI for Device Integrity Scanner."""
 import argparse, json, sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import logging
+logger = logging.getLogger(__name__)
+from typing import Any, Optional
 from src.scanner import DeviceIntegrityScanner
 
 def main():
